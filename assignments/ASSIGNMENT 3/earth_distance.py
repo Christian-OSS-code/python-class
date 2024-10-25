@@ -11,5 +11,5 @@ fourth_term_cosx2 = math.cos(math.radians(second_lattitude))
 last_term = math.cos(math.radians(first_longitude) - math.radians(second_longitude)) 
 
 
-distance = ((EARTH_RADIUS)*math.acos(first_term_sinx1)*(second_term_sinx2)) + ((third_term_cosx1)*(fourth_term_cosx2)*last_term)
+distance = (EARTH_RADIUS)*math.acos((first_term_sinx1)*(second_term_sinx2) + (third_term_cosx1)*(fourth_term_cosx2)*last_term)
 print(distance)
