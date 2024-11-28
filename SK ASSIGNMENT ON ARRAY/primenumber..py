@@ -46,6 +46,7 @@ def get_elementsalternation(letters:list, numbers:list)->list:
         alternate_list.append(index1)
         alternate_list.append(index2)
     return alternate_list
+
 def get_primenumber(number):
     pass 
         

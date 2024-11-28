@@ -7,6 +7,7 @@ import palindromechecker
 import reversedelement
 import listconcatenation
 import elementsalternation
+import evennumber
 
 class TestSumOfNumbers1(TestCase):
     def test_that_sumofnumbers1_exists(self):
@@ -99,6 +100,8 @@ class TestSumOfNumbers1(TestCase):
         self.assertEqual(actual, expected)
     def test_that_elementsalternation_exists(self):
         elementsalternation.get_elementsalternation([a, b, c, d, e], [1, 2, 3, 4, 5])
+    def test_evennumber_exists(self):
+        evennumber.get_evennumber(64)
 
 
 

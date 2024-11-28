@@ -8,6 +8,9 @@ import reversedelement
 import listconcatenation
 import elementsalternation
 import integerlist
+import primenumber
+import evennumber
+import positivedifference
 
 class TestSumOfNumbers1(TestCase):
     def test_that_sumofnumbers1_exists(self):
@@ -106,8 +109,32 @@ class TestSumOfNumbers1(TestCase):
         self.assertEqual(actual, expected)
     def test_that_integerlist_exists(self):
         integerlist.get_integerlist(12345)
-    def test_that_primenumbers_exists(self):
-        primenumbers.get_primenumbers(3)
+    def test_that_primenumber_exists(self):
+        primenumber.get_primenumber(3)
+    def test_that_primenumber_returns_correct_value(self):
+        actual = primenumber.get_primenumber(3)
+        expected = True
+        self.assertEqual(actual, expected)
+    
+    def test_that_evennumber_exists(self):
+        evennumber.get_evennumber(4)
+    def test_that_evennumber_returns_correct_value(self):
+        actual = evennumber.get_evennumber(4)
+        expected = True
+        self.assertEqual(actual, expected)
+    
+    def test_that_positivedifference_exists(self):
+        positivedifference.get_positivedifference(2, 7)
+            pass 
+
+
+
+
+
+
+
+
+
 
 
 

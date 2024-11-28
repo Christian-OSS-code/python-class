@@ -46,7 +46,17 @@ def get_elementsalternation(letters:list, numbers:list)->list:
         alternate_list.append(index1)
         alternate_list.append(index2)
     return alternate_list
+
 def get_primenumber(number):
+     counter = 0
+     for element in range (1, number):
+        if number % element == 0:
+            counter += 1
+     if counter == 1:
+        return True
+     else:
+        return False
+def get_evennumber (number):
     pass 
         
 
