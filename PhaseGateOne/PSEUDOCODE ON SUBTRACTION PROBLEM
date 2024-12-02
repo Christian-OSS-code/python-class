@@ -1,0 +1,46 @@
+PSEUDOCODE ON SUBTRCATION PROBLEM
+
+set the math.randint method to generate two random integers
+call the first "number1" and the second "number2"
+intialize count = 0
+intialize correct_answer_count = 0
+initialize total_score = 0
+initialize user_response = 0
+
+use a while loop and set count from zero to count less than 10 as the loop continuation condition
+
+use the if and else statement to prompt the user to enter their response and score each question as they respond
+
+if number2 > number1:
+create a variable called temporary variable
+
+store number1 as the temporary number variable
+swap number1 and number2 by storing number 1 and number2
+then store the temporary number as number1
+display the question:
+ 
+temporary number - number2
+
+Prompt the user to enter their response
+ 
+if user_response == temporary_number - number2
+
+increment correct_answer_count by one (correct_answer_count += 1)
+increment count by one (count += 1)
+
+
+else:
+    display the question "what is number1 - number2
+    prompt the user to enter their response
+if user_response == number1- number2
+increment correct_answer_count by one (correct_answer_count += 1)
+increment count by one (count += 1)
+
+display: You got "correct_answer_count" questions
+display You scored "correct_answer_count/count"
+
+
+
+
+
+

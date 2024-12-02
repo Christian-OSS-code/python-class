@@ -1,0 +1,36 @@
+PSEUDOCODE ON INCREASING ORDER OF INTEGERS
+
+prompt the user to enter three numbers
+
+collect and store the first as number1
+
+collect and store as number2
+
+collect and store as number3
+
+determine the maximum number using
+
+max(number1, number2, number3)
+
+store the result as number4
+
+determine the minimum number using
+
+min(number1, number2, number3)
+
+store the result as number5
+
+using the if statement
+
+if number1 != number4 and number1 != number5:
+display in the order: number5, number1, number4
+
+
+elif number2 != number4 and number2 != number5:
+display in the order number5, number2, number4
+
+
+elif number3 != number4 and number3 != number5:
+display in the order number5, number3 number4
+
+
