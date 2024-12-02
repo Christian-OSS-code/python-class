@@ -1,0 +1,21 @@
+PSEUDOCODE FOR SUM OF DIGITS
+
+Prompt the user to enter an integer
+ collect and store it as integer
+ initialize a variable called remainder to zero
+intialize a variable called total to zero
+
+using a while  sentinel loop with sentinel value while integer > 0
+
+use: integer % 10 to obtain the remainder
+
+store the result and call it "remainder"
+
+increment the total using: total + remainder
+
+divide the integer by 10 using the floor division (integer//10) 
+replace it with the value of the integer
+
+the while loop will repeat this process until the sentinel Value stops the while loop
+
+display the result using "The sum of the digits is: {total}"

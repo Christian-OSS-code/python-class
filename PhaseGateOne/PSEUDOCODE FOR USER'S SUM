@@ -1,0 +1,17 @@
+PSEUDOCODE FOR USERS SUM
+
+set a maths random function to generate the two random integers between 1 and 100
+
+store the first integer as integer1
+store the second as integer2
+
+prompt the user to provide the result to the sum of the two integers: integer1 and integer2
+
+collect and store it as users_sum
+
+check if the result is correct by using an if and else statement
+
+if user_sum == integer1 + integer2:
+    display "true"
+else:
+    display "false" 
