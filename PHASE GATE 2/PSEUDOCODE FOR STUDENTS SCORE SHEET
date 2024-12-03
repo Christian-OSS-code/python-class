@@ -1,0 +1,14 @@
+PSEUDOCODE FOR STUEDNT SCORE SHEETS OR RECORD
+
+-prompt the teacher to enter the number of students in the class
+- collect and store it as number of students
+- prompt the teacher to enter the number of subjects offered by the students
+- collect and store as number of subjects
+-create a dictionary that will collect studens name and scores between 0 and 100 for each student in each subject
+- calculate the total score of each students
+- collect and store as total
+- calculate the average of each students
+- collect and store as average
+- determine the position of the students in the class based on their performances
+- display the result
+
