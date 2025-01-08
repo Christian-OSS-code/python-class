@@ -5,11 +5,11 @@ while student_count_check:
 
 
     try:
-        number_of_students = int(input("Enter number of students: "))
+        number_of_students = int(input("Enter number of students:\n"))
 
 
         if (number_of_students <= 0):
-            print("Enter a non-zero or non-negative integer")
+            print("Enter a non-zero or non-negative integer\n")
 
 
         else:
@@ -17,7 +17,7 @@ while student_count_check:
 
 
     except ValueError:
-        print("Invalid input. Enter only integers")
+        print("Invalid input. Enter only integers\n")
 
 
 
@@ -27,12 +27,12 @@ subject_count_check = True
 while subject_count_check:
 
     try: 
-        number_of_subjects = int(input("Enter number of subjects: "))
+        number_of_subjects = int(input("Enter number of subjects:\n"))
 
 
 
         if (number_of_subjects <= 0):
-            print("Enter a non-zero or non-negative integer")        
+            print("\nEnter a non-zero or non-negative integer")        
     
 
         else:
@@ -40,7 +40,7 @@ while subject_count_check:
     
 
     except ValueError:
-        print("Invalid input. Enter only integers")
+        print("\nInvalid input. Enter only integers")
 
 
 
@@ -50,9 +50,9 @@ while subject_count_check:
 student_records = {}
 student_input_check = True
 
-
+print("\nEnter score in subjects\n")
 for count in range(number_of_students):
-    print("student ", (count + 1))
+    print("\nstudent ", (count + 1))
 
 
 
@@ -66,10 +66,10 @@ for count in range(number_of_students):
                 
 
                 try:
-                    scores = int(input(f"Enter score in subject{counter + 1}:"))
+                    scores = int(input(f"subject{counter + 1}:"))
 
                     if scores < 0 or scores > 100:
-                        print("Enter a non-negative integer not greater than 100")
+                        print("\nEnter a non-negative integer not greater than 100")
                         
                     else:
                       
@@ -77,7 +77,7 @@ for count in range(number_of_students):
                     
 
                 except ValueError:
-                    print("Invalid input. Enter only integer scores")
+                    print("\nInvalid input.\nEnter only integer scores")
 
 
         student_scores.append(scores)       
@@ -390,7 +390,7 @@ def get_subjectsummary(student_records):
 
             max_student = maximum_student[index]
 
-            max_scores_display = f" is student: {max_student} scoring: {max_scores}"
+            max_scores_display = f" is student: {max_student} scoring: {max_scores}\n"
 
         if index < len(minimum_score):
 
@@ -398,13 +398,13 @@ def get_subjectsummary(student_records):
 
             min_student = minimum_student[index]
 
-            min_scores_display = f"The lowest score in SUB{index + 1} is student{min_student} scoring {min_score}"
+            min_scores_display = f"The lowest score in SUB{index + 1} is student{min_student} scoring {min_score}\n"
 
-        total_score = f"The subject total score is {total_subject_score[index]}"
+        total_score = f"The subject total score is {total_subject_score[index]}\n"
 
-        average_score = f"The subject average is {average_subject_score[index]}"
+        average_score = f"The subject average is {average_subject_score[index]}\n"
 
-        passes = f"The number of passes is {passed_students[index]}"
+        passes = f"The number of passes is {passed_students[index]}\n"
         failures = f"The number of failures is {failed_students[index]}"
 
         
@@ -434,7 +434,7 @@ def get_hardestsubject(student_records:dict):
    
     
     print("="*80)
-    print(f"The hardest subject is SUB: {hardest_subject} with {failures} fails, {passes} passes")
+    print(f"The hardest subject is SUB: {hardest_subject} with {failures} fails, {passes} passes\n")
 
     return hardest_subject 
   
@@ -461,7 +461,7 @@ def get_easiestsubject(student_records:dict):
         
 
 
-    print(f"The easiest subject is SUB: {easiest_subject} with {minimum_failures} fails, {maximum_passes} passes")
+    print(f"The easiest subject is SUB: {easiest_subject} with {minimum_failures} fails, {maximum_passes} passes\n")
 
 
     return easiest_subject
@@ -504,7 +504,7 @@ def get_overallhighestsubjectscore(student_records:dict):
     return  overall_highest_score
 
 
-print("".join(f"scoring {get_overallhighestsubjectscore(student_records)}")) 
+print("".join(f"scoring {get_overallhighestsubjectscore(student_records)}\n")) 
 
 
 def get_overalllowestsubjectscore(student_records:dict):
@@ -537,7 +537,7 @@ def get_overalllowestsubjectscore(student_records:dict):
 
     
 
-print("".join(f"scoring {get_overalllowestsubjectscore(student_records)}")) 
+print("".join(f"scoring {get_overalllowestsubjectscore(student_records)}\n")) 
 
 
 
@@ -610,9 +610,122 @@ print("="*80)
 print(f"Class total score is: {get_studentgrade(student_records)}")
 print(f"Class average score is: {get_generalclassaverage(student_records): .2f}")
 print("="*80)
-print("="*80)
-     
+#print("="*80)
 
+
+
+print("\nCLASS SCORE BARCHART\n")
+print("="*80)
+print("Here is your ScoreBarChart Showing Passes and Failures in Subjects\n")
+print("Subjects with 5 stars and above indicates a pass\nWhile Subjects with 4 stars and below indicates a fail\n\n")
+
+def get_scorebarchat(student_records:dict, number_of_subjects:int):
+
+
+    total_score_lists = get_totalscoreinsubjects(student_records)
+
+
+    
+
+    
+    for index1, score_list in enumerate(student_records.values(), start = 1):
+
+        print(f"student: {index1}\n")
+
+        
+
+        student_passes = 0
+        
+        student_failures = 0
+
+               
+        for index2, score in enumerate(score_list, start = 1):
+
+            length_of_bar = score // 10
+
+
+            bar = "*"*length_of_bar
+
+
+            print(f"subject: {index2}\t", end = " ")
+
+            print("".join(f"{bar}: {score}\t"), end = " ")
+
+            if length_of_bar >= 5:
+
+                print("".join(f"PASS"))
+
+                
+
+                student_passes += 1               
+
+
+            else:
+
+                print("".join(f"FAIL"))
+
+                student_failures += 1
+
+
+
+       
+
+
+        print()
+
+       
+
+get_scorebarchat(student_records, number_of_subjects)
+
+print("="*80)
+
+def student_category_based_on_scores(student_records:dict, number_of_subjects:int):
+
+    total_score_lists = get_studenttotal(student_records)
+
+
+
+
+    high_achievers = []
+
+    average_students = []
+
+    below_average_students = []
+
+    for index, score in enumerate(total_score_lists, start = 1):
+
+        if score >= (0.75) * (100*number_of_subjects):
+
+            high_achievers.append(index)
+
+
+
+        elif score >= (0.5) * (100*number_of_subjects) and  score < (0.75) * (100*number_of_subjects):
+
+            average_students.append(index)
+
+
+
+        elif score < (0.5) * (100*number_of_subjects):
+
+           below_average_students.append(index)
+
+
+
+    print("STUDENT PERFORMANCE CATEGORIES\n")
+    print("="*80)
+
+    print(f"High achievers are students: {high_achievers}\n")
+
+    print(f"Average students are students: {average_students}\n")
+
+    print(f"Below average students are students: {below_average_students}\n")
+
+    print("="*80)
+
+    
+     
+student_category_based_on_scores(student_records, number_of_subjects)
 
 
 

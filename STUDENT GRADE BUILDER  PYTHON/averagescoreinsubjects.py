@@ -52,7 +52,7 @@ student_input_check = True
 
 
 for count in range(number_of_students):
-    print("student ", (count + 1))
+    print("\nstudent ", (count + 1))
 
 
 
@@ -66,7 +66,7 @@ for count in range(number_of_students):
                 
 
                 try:
-                    scores = int(input(f"Enter score in subject{counter + 1}:"))
+                    scores = int(input(f"subject{counter + 1}:"))
 
                     if scores < 0 or scores > 100:
                         print("Enter a non-negative integer not greater than 100")
