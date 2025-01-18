@@ -1,15 +1,141 @@
 
 
+print("\nWELCOME TO LAGBAJA INTERNATIONAL SCHOOL\n\nMOTTO:\tEDUCATION IS LIGHT🔥️💥️\n")
+
+
+
+teacher_name = ""
+teacher_name_check = True
+
+while teacher_name_check:
+
+        teacher_name = input("Enter tutor's name: MR/MRS/MISS \n")
+
+        stripped_name = teacher_name.strip()
+
+        if stripped_name.replace(" ", "").isalpha():
+
+            arranged_name = "".join(stripped_name.split())
+
+            break
+
+        else:
+
+            print("Invalid input!. Enter only alphabets\n")
+
+            
+
+
+print("\nWhat class do you teach?")
+
+
+
+while True:
+
+    try:
+
+        class_name = int(input("\n1. Emerald:\n \n2. Marble:\n \n3. Gold:\n "))
+
+        if class_name < 1 or class_name > 3:
+
+                print("Input out of bound!")
+
+        else: 
+                                
+            match class_name:
+
+                                   
+                case 1: 
+
+
+                    print ("\nWelcome to Emerald Class\n\nMOTTO: We are Sensational!💥️👏️\n")
+                                        
+
+                    break
+
+                                    
+
+                case 2: 
+
+        
+                    print("\nWelcome to Marble Class\n\nMOTTO: We are Visionaries!🌏️💡️\n")
+                                        
+
+                    break
+    
+                                   
+
+                case 3: 
+
+
+                    print("\nWelcome to Gold Class\n\nMOTTO: We are the Architech of our dreams!🛠️📉️\n")
+                                        
+
+
+                    break
+
+
+    except ValueError:
+
+                              
+        print("Invalid input!")
+
+
+
+
+term_checker = True
+
+while term_checker:
+
+    
+    try:
+
+        term = int(input("Select the term\n\n1. AUTUM TERM: \n\n2. SPRING TERM: \n\n3. SUMMER TERM\n\n"))
+
+        if term < 1 or term > 3:
+
+            print("input is out of bound!\n")
+
+        
+        else:
+
+            match term:
+
+                case 1:
+
+                    print("Welcome to Autum Term🍊️\n")
+
+                    break
+
+                case 2:
+
+                    print("Welcome to Spring Term🌹️🌸️\n")
+
+                    break
+
+                case 3:
+
+                    print("Welcome to Summer Term☀️🌝️\n")
+
+                    break
+
+    except ValueError:
+
+        print("Invalid input!")
+                               
+
+
+
 student_count_check = True
 while student_count_check:
 
 
     try:
-        number_of_students = int(input("Enter number of students:\n"))
+        number_of_students = int(input("\nEnter number of students:\n"))
 
 
         if (number_of_students <= 0):
-            print("Enter a non-zero or non-negative integer\n")
+            print(f"Oops {teacher_name}! Enter a non-zero or non-negative integer\n")
 
 
         else:
@@ -17,7 +143,7 @@ while student_count_check:
 
 
     except ValueError:
-        print("Invalid input. Enter only integers\n")
+        print(f"Oops {teacher_name}! Enter only integers")
 
 
 
@@ -32,7 +158,7 @@ while subject_count_check:
 
 
         if (number_of_subjects <= 0):
-            print("\nEnter a non-zero or non-negative integer")        
+            print("\nOops {teacher_name}! Enter a non-zero or non-negative integer")        
     
 
         else:
@@ -40,7 +166,7 @@ while subject_count_check:
     
 
     except ValueError:
-        print("\nInvalid input. Enter only integers")
+        print("\nOops {teacher_name}! Invalid input. Enter only integers")
 
 
 
@@ -49,6 +175,7 @@ while subject_count_check:
 
 student_records = {}
 student_input_check = True
+
 
 print("\nEnter score in subjects\n")
 for count in range(number_of_students):
@@ -66,7 +193,7 @@ for count in range(number_of_students):
                 
 
                 try:
-                    scores = int(input(f"subject{counter + 1}:"))
+                    scores = int(input(f"subject{counter + 1} score: "))
 
                     if scores < 0 or scores > 100:
                         print("\nEnter a non-negative integer not greater than 100")
@@ -108,11 +235,6 @@ def get_studenttotal(student_records:list)->list:
     student_total = [sum(i) for i in student_records.values()]
 
     return student_total
-
-
-
-
-
 
 
 
@@ -169,11 +291,13 @@ student_score_list = get_studenttotal(student_records)
 
 
 print()
+print("\nLAGBAJA INTERNATIONAL SCHOOL RESULT ANALYSIS ")
 print("="*80)
 print("STUDENT\t\t", end = " ")
 print("".join(f"SUB{i}\t" for i in range(1, len(student_scores)+ 1)), end = " ")
 print("".join(f"TOTAL\tAVERAGE\tPOSITION"))
 print("="*80)
+
 
 
 for (students, scores), position in zip(student_records.items(), position_lists):
@@ -192,6 +316,9 @@ for (students, scores), position in zip(student_records.items(), position_lists)
 
 print("="*80)
 print()
+print("="*80)
+
+print("Examination cut-off mark is ", 50)
 
 
 
@@ -264,11 +391,7 @@ def get_averagescoreinsubjects(student_records:dict):
 
 
 
-   
-
-
-
-
+ 
 def get_numberofpasses(student_records:dict):
     subject_score_lists3 = list(map(list, zip(*student_records.values())))
 
@@ -390,7 +513,7 @@ def get_subjectsummary(student_records):
 
             max_student = maximum_student[index]
 
-            max_scores_display = f" is student: {max_student} scoring: {max_scores}\n"
+            max_scores_display = f" is student{max_student} scoring{max_scores}\n"
 
         if index < len(minimum_score):
 
@@ -428,7 +551,7 @@ def get_hardestsubject(student_records:dict):
     failures = max(list_of_failures)
     passes = len(student_records) - failures
    
-    #for count, score in enumerate(list_of_failures):
+    
     hardest_subject = [count + 1 for count, score in enumerate(list_of_failures) if score == failures]
             
    
@@ -519,6 +642,7 @@ def get_overalllowestsubjectscore(student_records:dict):
         lowest_lists.append(min(score))
 
 
+
     overall_lowest_score = min(lowest_lists)
     overall_lowest_student = [count + 1 for count, grade in enumerate(lowest_lists) if grade == overall_lowest_score]
 
@@ -557,6 +681,7 @@ def get_overallbeststudent(student_records:dict):
     overall_best_score = max(student_total_score)
 
     overall_best_student = [count + 1 for count, score in enumerate(student_total_score) if score == overall_best_score]
+
 
     
     print(f"The Best Graduating Student is: Student{overall_best_student}", end = "")
@@ -606,18 +731,20 @@ def get_generalclassaverage(student_records:dict):
     return overall_average
 
 
+
+
 print("="*80)
 print(f"Class total score is: {get_studentgrade(student_records)}")
 print(f"Class average score is: {get_generalclassaverage(student_records): .2f}")
 print("="*80)
-#print("="*80)
+
 
 
 
 print("\nCLASS SCORE BARCHART\n")
 print("="*80)
 print("Here is your ScoreBarChart Showing Passes and Failures in Subjects\n")
-print("Subjects with 5 stars and above indicates a pass\nWhile Subjects with 4 stars and below indicates a fail\n\n")
+print("Subjects with 5 stars and above indicates a pass\n\nWhile Subjects with 4 stars and below indicates a fail\n\n")
 
 def get_scorebarchat(student_records:dict, number_of_subjects:int):
 
@@ -653,7 +780,7 @@ def get_scorebarchat(student_records:dict, number_of_subjects:int):
 
             if length_of_bar >= 5:
 
-                print("".join(f"PASS"))
+                print("".join(f"PASS✅️"))
 
                 
 
@@ -662,7 +789,7 @@ def get_scorebarchat(student_records:dict, number_of_subjects:int):
 
             else:
 
-                print("".join(f"FAIL"))
+                print("".join(f"FAIL❌️"))
 
                 student_failures += 1
 
@@ -678,6 +805,9 @@ def get_scorebarchat(student_records:dict, number_of_subjects:int):
 get_scorebarchat(student_records, number_of_subjects)
 
 print("="*80)
+
+
+
 
 def student_category_based_on_scores(student_records:dict, number_of_subjects:int):
 
@@ -715,18 +845,71 @@ def student_category_based_on_scores(student_records:dict, number_of_subjects:in
     print("STUDENT PERFORMANCE CATEGORIES\n")
     print("="*80)
 
-    print(f"High achievers are students: {high_achievers}\n")
+    print(f"High achievers category (from 75% to 100%):\n")
 
-    print(f"Average students are students: {average_students}\n")
+    if (len(high_achievers) == 0):
 
-    print(f"Below average students are students: {below_average_students}\n")
+            print("There is no student in this category")
+
+
+    else:
+
+        for index_high_achievers in high_achievers:
+
+            print(f"student: {index_high_achievers}💯️")
+
+    
+    print("="*80)
+    print(f"Average students category (from 50% to 74%):\n")
+
+    if (len(average_students) == 0):
+
+            print("There is no student in this category")
+
+
+    else:
+
+
+        for index_average_student in average_students:
+
+            print(f"student: {index_average_student}")
+
+
 
     print("="*80)
+    print(f"Below average students category (from 0% to 49%):\n")
+
+
+    if (len(below_average_students) == 0):
+
+            print("There is no student in this category")
+
+
+    else:
+
+
+        for index_below_average in below_average_students:
+
+            print(f"student: {index_below_average}")
+
+
+    print("="*80)
+
+    
 
     
      
 student_category_based_on_scores(student_records, number_of_subjects)
 
+
+
+print("TUTOR'S PERFOMANCE EVALUATION")
+
+
+print(f"Dear Mr/Mrs/Miss {teacher_name}, your scholars area of weakness is in SUB {get_hardestsubject(student_records)}.\n\nYou are advised to strategize an action plan to help them do better\n\nin their forth coming final examination")
+print("="*80)
+
+print("="*80)
 
 
 
